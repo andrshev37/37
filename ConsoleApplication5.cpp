@@ -23,27 +23,27 @@ int main()
     /// 
     /// </summary>
     /// <returns></returns>
-    n = 5;
+    n  = 5;
     /// <summary>
     /// 
     /// </summary>
     /// <returns></returns>
-    int arr[n];
+    int arr[5];
     int max, min;
-    while (n){
-        cin >> arr[n];
-        n--;
+    for(int i=0;i<5;i++){
+        cin >> arr[i];
     }
     max = min = arr[0];
-    for (int i; i <= n; i++) {
-        if (max > arr[i]){
+    for (int i=1; i < n; i++) {
+        if (max < arr[i]){
             max = arr[i];
         }
-        if (min < arr[i]) {
+        if (min > arr[i]) {
             min = arr[i];
         }
     }
+    int out = min + max;
     cout << endl;
-    cout << min + max;
+    cout << out;
 }
 
