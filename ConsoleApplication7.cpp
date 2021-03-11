@@ -4,20 +4,21 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int Sn(int eps, int x) {
+float Sn(float eps, float x) {
 	int n = 0;
-	int num;
-	int f;
+	float num;
+	int f=1;
 	do {
-		f *= n * (n - 1);
+		
 		if (n != 0) {
-			num = pow(-1, n) * pow(x, 2 * n + 1) / f;
+			f *= 2*n+1;
+			num += pow(-1, n) * pow(x, 2 * n + 1) / f;
 		}
 		else
 		{
 			num = x;
 		}
-		n += 2;
+		n ++;
 	} while (n < eps);
 	return num;
 }
@@ -31,7 +32,7 @@ int Nis(int n) {
 	return p;
 }
 int Pr(int n,int p) {
-	int de, outn;
+	int de, outn=1;
 	while (n) {
 
 		p--;
@@ -39,9 +40,12 @@ int Pr(int n,int p) {
 		outn *= n / de;
 
 		n %= de;
+
 	}
-}int NPr(int n, int p) {
-	int de, outn;
+	return outn;
+}
+int NPr(int n, int p) {
+	int de, outn=0;
 	while (n) {
 		
 		p--;
@@ -50,6 +54,7 @@ int Pr(int n,int p) {
 		
 		n %= de;
 	}
+	return outn;
 }
 int Rec(int n)
 {
@@ -57,6 +62,7 @@ int Rec(int n)
 	if (n == 0) return(1);
 	else if (n == 1) return(2);
 	answer = 2* Rec(n - 1) +4* Rec(n - 2) + 1;
+	cout << answer << " ";
 	return(answer);
 }
 
@@ -64,13 +70,14 @@ int main()
 {
 //cout << "Eps\n";
 	//int eps = 100000;
-	int eps = 100;
+	float eps = 10;
 	cout << "x:";
-	int x,n;
+	float x;
+	int n;
 	cin >> x;
 	cout << endl;
-	cout << Sn(eps, x);
-	cout << "n;";
+	cout << Sn(eps, x)<<endl;
+	cout << "n:";
 	cin >> n;
 	int p = Nis(n);
 	if (n % 2) {
