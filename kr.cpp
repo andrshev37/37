@@ -59,7 +59,7 @@ int Rec(int n)
 	if (n == 0) return(1);
 	else if (n == 1) return(2);
 	answer = 2* Rec(n - 1) +4* Rec(n - 2) + 1;
-	cout << answer << " ";
+	//cout << answer << " ";
 	return(answer);
 }
 
