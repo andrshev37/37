@@ -1,7 +1,4 @@
-﻿// kr2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <fstream>
 using namespace std;
@@ -12,22 +9,9 @@ struct Books
     int date;
     string janr;
 };
-void out(Books t) {
-    ofstream fout("out.txt");
-    while (!fout.eof()) {
 
-        fout << t.name << t.avtr << t.date << t.janr;
-    }
-    fout.close();
-}
-
-void sortn(int n,Books) {
-
-    
-}
 int main()
 {
-    Books s[100], temp;
     char* str = new char[1024];
     ifstream fin("in.txt");
     int n = 0;
@@ -36,7 +20,9 @@ int main()
         fin.getline(str, 1024, '\n');
         n++;
     }
-    ifstream fin("in.txt");
+    Books s[100], temp;
+   
+    
     for (int i = 0; i < n; i++) {
         fin >> s[i].name >> s[i].avtr >> s[i].date >> s[i].janr;
     }
@@ -73,4 +59,6 @@ int main()
     }
     fout.close();
 }
+
+
 
